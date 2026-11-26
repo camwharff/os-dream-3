@@ -1,5 +1,8 @@
 extends Node
 
+signal time_up
+signal time_changed
+
 var phase: int
 var seed: int
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -49,3 +52,14 @@ func new_run(custom_seed: int = 0):
 		rng.randi_range(1, 9),
 	]
 	lock_tries_left = 3
+
+
+func change_stat(stat: String, amount: int):
+	stats[stat] = amount
+
+
+func tick_time(amount: int):
+	time_left -= amount
+	time_changed.emit()
+	if time_left <= 0:
+		time_up.emit()
