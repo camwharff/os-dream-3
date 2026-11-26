@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dxlvnm7ru05ju"]
+
+[ext_resource type="Script" uid="uid://c00wjf13cni7m" path="res://scenes/ui/title.gd" id="1_nb57w"]
+
+[node name="Title" type="Control" unique_id=365577083]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nb57w")
+
+[node name="NewGame" type="Button" parent="." unique_id=270283264]
+layout_mode = 0
+offset_left = 871.0
+offset_top = 158.0
+offset_right = 1087.0
+offset_bottom = 248.0
+text = "New Game"
+
+[node name="Settings" type="Button" parent="." unique_id=780345884]
+layout_mode = 0
+offset_left = 876.0
+offset_top = 349.0
+offset_right = 1092.0
+offset_bottom = 439.0
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="." unique_id=1922913248]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 596.0
+offset_right = 1088.0
+offset_bottom = 686.0
+text = "Quit"
+
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
