@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://rumsuutljxvy"]
+
+[ext_resource type="Script" uid="uid://cc6ejfea6koix" path="res://scenes/ui/settings_menu.gd" id="1_qwcqe"]
+
+[node name="SettingsMenu" type="Control" unique_id=1287800097]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qwcqe")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1215133824]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 208.0
+offset_right = 1541.0
+offset_bottom = 857.0
+color = Color(0, 0, 0, 0.4745098)
+
+[node name="Fullscreen" type="CheckButton" parent="." unique_id=1071473561]
+layout_mode = 0
+offset_left = 916.0
+offset_top = 655.0
+offset_right = 1043.0
+offset_bottom = 686.0
+text = "Fullscreen"
+
+[node name="Music" type="HBoxContainer" parent="." unique_id=697404190]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 587.0
+offset_right = 1161.0
+offset_bottom = 628.0
+
+[node name="MusicText" type="Label" parent="Music" unique_id=422980202]
+layout_mode = 2
+text = "Music Volume: "
+
+[node name="MusicVol" type="HSlider" parent="Music" unique_id=251318932]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="SFX" type="HBoxContainer" parent="." unique_id=593805136]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 521.0
+offset_right = 1164.0
+offset_bottom = 562.0
+
+[node name="SFXText" type="Label" parent="SFX" unique_id=1498035189]
+layout_mode = 2
+text = "SFX Volume: "
+
+[node name="SFXVol" type="HSlider" parent="SFX" unique_id=1337861534]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[connection signal="toggled" from="Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="Music/MusicVol" to="." method="_on_music_vol_value_changed"]
+[connection signal="value_changed" from="SFX/SFXVol" to="." method="_on_sfx_vol_value_changed"]

@@ -2,8 +2,8 @@ extends Node
 
 const PATH: String = "user://settings.cgf"
 
-var music_vol: int = 0.5
-var sfx_vol: int = 0.5
+var music_vol: float = 0.5
+var sfx_vol: float = 0.5
 var fullscreen = false
 
 
@@ -35,10 +35,12 @@ func save_settings():
 func apply_settings():
 	_set_bus_volume("Music", music_vol)
 	_set_bus_volume("SFX", sfx_vol)
+
+	var main_window := get_tree().root
 	if fullscreen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		main_window.mode = Window.MODE_FULLSCREEN
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		main_window.mode = Window.MODE_WINDOWED
 
 
 func _set_bus_volume(bus: String, val: float) -> void:

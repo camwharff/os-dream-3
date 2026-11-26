@@ -1,7 +1,6 @@
 extends Control
 
-# add menu res://scenes/ui/settings_menu.tscn when it exists
-const SETTINGS_MENU: Control = preload("")
+const SETTINGS_MENU: PackedScene = preload("res://scenes/ui/settings_menu.tscn")
 
 
 func _on_new_game_pressed() -> void:

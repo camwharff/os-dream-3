@@ -4,7 +4,7 @@ signal time_up
 signal time_changed
 
 var phase: int
-var seed: int
+var game_seed: int
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var stats: Dictionary[String, int] = {
 	"energy": 0,
@@ -35,10 +35,10 @@ func _process(delta: float) -> void:
 func new_run(custom_seed: int = 0):
 	phase = 0
 	if custom_seed == 0:
-		seed = randi()
+		game_seed = randi()
 	else:
-		seed = custom_seed
-	rng.seed = seed
+		game_seed = custom_seed
+	rng.seed = game_seed
 	stats = { "energy": 0, "happiness": 0, "sanity": 0, "stress": 0 }
 	time_left = 0
 	puzzle_results = {
